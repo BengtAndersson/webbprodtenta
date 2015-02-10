@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Min sida</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="js/libs/jquery-2.1.3.js"></script>
+		<script src="js/libs/bootstrap.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/files/ajax.js"></script>
+		<script src="js/files/start.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="less/style.less">   
+	</head>
+
+
+<body>
+		<header class="container-fluid">
+			<section class="row">
+				<nav class="navbar navbar-inverse navbar-static-top">					
+					<form class="navbar-form navbar-right" role="search">
+						<!-- Button trigger modal -->
+		        		<button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#myModal">
+						  Lägg till ny sida
+						</button>	
+						<div class="form-group">
+		      				<input type="text" class="form-control" placeholder="Sök sida">		      				
+		    			</div>
+		    			<button type="submit" class="btn btn-default search-button">Sök</button>
+		    		</form>
+				</nav>
+			</section>
+		</header>
+		
+
+
+		<!-- Modal -->
+		
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog-lg">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h2 class="modal-title" id="myModalLabel">Infoga ny sida</h2>
+		      </div>
+		      	<section id="admin-form"> 
+		      		<form class="form-horizontal">
+			      		<div class="modal-body">			      	
+
+			      			<!-- Input fields -->
+				      		<div class="form-group">
+				              <label class="col-sm-2 control-label" for="page_title">Titel</label>
+				              <div class="col-sm-10">
+				                <input type="text" id="page_title" class="form-control" placeholder="Skriv titel till sida..." required>
+				              </div>
+				            </div>
+
+				            <div class="form-group">
+				              <label class="col-sm-2 control-label" for="page_body">Sid innehåll</label>
+				              <div class="col-sm-10">
+				                <textarea id="page_body" class="form-control" rows="10" placeholder="Fyll i sid innehåll..." required></textarea>
+				              </div>
+				            </div>
+<!--///////////////////////////////////////////////////////////////////-->
+				            <div class="form-group addToMenu">
+				              <label class="col-sm-2 control-label" for="menuChoice">Lägg till meny</label>
+				              <div class="col-sm-10">
+				                <button type="button" class="btn btn-default showMenu" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+								</button>
+				              </div>
+
+				              <div class="col-sm-6 col-sm-offset-2 menuChoice">
+				                <div class="input-group">
+			                  		<div class="input-group input-group-sm">
+									  <span class="input-group-addon" id="sizing-addon3">Meny titel</span>
+									  <input type="text" class="form-control" id="menuTitle" placeholder="Skriv meny titel..." aria-describedby="sizing-addon3">
+									  <span class="input-group-addon" id="sizing-addon3">Nivå</span>
+									  <input type="text" class="form-control" placeholder="Skriv nivå i menyn..." aria-describedby="sizing-addon3">
+									  <span class="input-group-addon" id="sizing-addon3">Huvudmeny</span>
+									  <input type="text" class="form-control" placeholder="Skriv huvudmeny..." aria-describedby="sizing-addon3">
+									</div>
+				                </div>
+				                <div class="menuSelect">
+				                </div>
+				              </div>
+				            </div>
+<!--//////////////////////////////////////////////////////////////////////-->			        
+			      		</div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Avsluta</button>
+				        <button type="submit" class="btn btn-primary" id="saveData">Spara sida</button>
+				      </div>
+			      	</form>
+			  	</section>
+		    </div>
+		  </div>
+		</div>
+
+
+		
+
+		<!-- Content of pages -->
+		<main class="container">
+			<section class="row">
+				<section id="content-list" class="main">
+	                <div class="panel panel-default">
+	                <div class="panel-heading">
+		              <h1 class="panel-title">Befintliga sidor</h1>
+		            </div>	
+
+		            <table class="table table-bordered">
+		              <tr class="pageTableHeads">
+		                <!-- table heads -->
+		                <th class="col-xs-1">pid:</th>
+		                <th class="col-xs-2">Titel:</th>
+		                <th class="col-xs-2">Författare:</th>
+		                <th class="col-xs-2">Skapad:</th>
+		                <th class="col-xs-1">Ta bort sida:</th>
+		              </tr>
+		            </table>
+		          </div>
+		        </section>
+			</section>
+		</main>
+
+
+
+	</body>
+</html>
