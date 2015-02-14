@@ -3,7 +3,7 @@
 function startFunc(){
 
 
-  $(".addToMenu .menuChoice").hide();
+  $(".addToMenu .menu_display").hide();
 
 /*Submit function for adminform & creating object adminFormData*/
   $("#admin-form form").submit(function() {    
@@ -20,19 +20,50 @@ function startFunc(){
     return false;
   });
 
+
+
+  // Test av dubbelklickÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+  $("#page_body").dblclick(function(){
+    alert("Fy för sören det funkar ju!")
+  })
+
 //Showing menuChoice fields
-
   $(".showMenu").on("click", function(){      
-      $(".addToMenu .menuChoice").fadeToggle(500);  
+      $(".menu_display").fadeToggle(500);  
 
-      if($(".addtoMenu").visible) {
-        alert("Jag syns !!")
-        $(".menuTitle").attr("required");
-      }   
+      //Add menulinks  
+  if($("menu_field").focus()){
+    alert("tjo!!");
+  }
   });
 
+  
 
 
+
+      
+  }   
+  //End startFunc """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  
+
+
+
+
+/*
+  $("#menu_field").on("dblclick" function(){
+    $("menu_field").append("<textarea id="menu_block" placeholder="Menynamn" required></textarea>")
+
+  })
+*/
+
+
+
+
+
+
+//Add menu links function
+function addmenulinks(){
 
 
 
