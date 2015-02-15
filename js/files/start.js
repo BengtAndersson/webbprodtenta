@@ -3,9 +3,25 @@
 function startFunc(){
 
 
-  $(".addToMenu .menu_display").hide();
+  //$(".addToMenu .menu_display").hide();
+  //Infoga ny sida, öppna modal
+  $(".openModal").on("click", function(){   
+     
+    //Call function to send Ajax-call to get menulinks
+      alert("Nu öppnas den !!")
+  });
 
-/*Submit function for adminform & creating object adminFormData*/
+  // Add menulink & positioning
+  $("#menuField").mouseover(function(){
+    $("#menuField").css('cursor', 'pointer');
+  })
+
+  $("#menuField").dblclick(function(){
+    alert("Fy för sören det funkar ju!");
+  })
+
+
+//Submit function for adminform & creating object adminFormData
   $("#admin-form form").submit(function() {    
     var adminFormData = {
       ":title" : $(this).find("#page_title").val(),
@@ -22,11 +38,7 @@ function startFunc(){
 
 
 
-  // Test av dubbelklickÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-
-  $("#page_body").dblclick(function(){
-    alert("Fy för sören det funkar ju!")
-  })
+  
 
 //Showing menuChoice fields
   $(".showMenu").on("click", function(){      
