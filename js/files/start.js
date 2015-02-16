@@ -17,7 +17,7 @@ function startFunc(){
   })
 
   $("#menuField").dblclick(function(){
-    alert("Fy för sören det funkar ju!");
+    alert("Här ska en ruta komma upp och man ska få ange menynamn!");
   })
 
 

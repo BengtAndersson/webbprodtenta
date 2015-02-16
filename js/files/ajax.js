@@ -24,3 +24,25 @@ function savePage(adminFormData) {
   return false;
 }
 
+//Function to get menu links
+/*
+function getMenuLinks(){
+
+  $.ajax({
+    url: "",
+    type: "get",
+    dataType: "json",
+    data: {
+      "" :
+    },
+    success: function(data) {
+      console.log("Success getting menuLinks");
+    },
+    error: function(data) {
+      console.log("Error: ", data);
+    }
+  });
+  return false;
+}
+
+*/
