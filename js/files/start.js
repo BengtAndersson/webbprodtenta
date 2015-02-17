@@ -1,14 +1,12 @@
 
-//This function is called after DOM-ready in main.js
+
 function startFunc(){
-
-
-  //$(".addToMenu .menu_display").hide();
+  getMenuLinks();
+  
   //Infoga ny sida, öppna modal
-  $(".openModal").on("click", function(){   
-     
+  $(".openModal").on("click", function(){        
     //Call function to send Ajax-call to get menulinks
-      alert("Nu öppnas den !!")
+    //getMenuLinks();      
   });
 
   // Add menulink & positioning
@@ -16,8 +14,9 @@ function startFunc(){
     $("#menuField").css('cursor', 'pointer');
   })
 
-  $("#menuField").dblclick(function(){
-    alert("Här ska en ruta komma upp och man ska få ange menynamn!");
+  $("#menuField").click(function(){
+    getMenuLinks("select");
+    $("#addMenuLink").modal('show');
   })
 
 
@@ -37,8 +36,21 @@ function startFunc(){
   });
 
 
+  var field = $()
+  //Adds menu link and name
+  $("#addMenuLink form").submit(function() {   
+    alert(x);
+    //$("#menuField").append("<ul><li><a href="#">hejhej</a></li></ul>");
+    
+    this.reset(); 
+    
+    return false;
+  });
 
-  
+
+
+
+ /* 
 
 //Showing menuChoice fields
   $(".showMenu").on("click", function(){      
@@ -51,32 +63,10 @@ function startFunc(){
   });
 
   
-
+*/
 
 
       
   }   
   //End startFunc """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   
-
-
-
-
-/*
-  $("#menu_field").on("dblclick" function(){
-    $("menu_field").append("<textarea id="menu_block" placeholder="Menynamn" required></textarea>")
-
-  })
-*/
-
-
-
-
-
-
-//Add menu links function
-function addmenulinks(){
-
-
-
-}

@@ -1,5 +1,2 @@
-# Detta är min webbproduktions tenta inlämning
-
-
-
+# Webbproduktions tenta WU-14
 Bengt Andersson 2015

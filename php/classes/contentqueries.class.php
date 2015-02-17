@@ -118,16 +118,9 @@ class ContentQueries extends PDOHelper {
    * Menus
    */
 
-  public function getMenuNames() {
-    $sql = "SELECT * FROM menus";
-    return $this->query($sql);
-  }
-
-
-  public function getMenuLinks($menu_name) {
-    $menu_name = array(":menu_name" => $menu_name);
-    $sql = "SELECT * FROM menu_links WHERE menu = :menu_name";
+  public function getMenuLinks() {
+    $sql = "SELECT * FROM menu_links ORDER BY weight DESC";
     
-    return $this->query($sql, $menu_name);
+    return $this->query($sql);
   }
 }
