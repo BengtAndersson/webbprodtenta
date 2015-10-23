@@ -1,7 +1,7 @@
 // All ajax calls needed
 
 // Data from form as object adminFormData
-
+/*
 function savePage(adminFormData) {
   console.log("Du har kommit till Ajax anropet, function savepage är anropad");
   $.ajax({
@@ -101,3 +101,4 @@ function makeSelect(menuLinksData) {
   $("#addLink .menuSelect").html(selectHtml);
 }
 
+*/

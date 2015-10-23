@@ -11,152 +11,112 @@
 		<script src="js/files/start.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="less/style.less">   
+		
 	</head>
 
 
-<body>
-		<header class="container-fluid">
-			<section class="row">
-				<nav class="navbar navbar-inverse navbar-static-top">				
-					<form class="navbar-form navbar-right" role="search">
-							
-						<div class="form-group">
-		      				<input type="text" class="form-control" placeholder="Sök sida">		      				
-		    			</div>
-		    			<button type="submit" class="btn btn-default search-button">Sök</button>
-		    		</form>
-				</nav>
-			</section>
-		</header>
-		
+	<body>
+		<!----------------------------------------------- The adminpage ---------------------------------->
+		<article class="container-fluid adminpage">
+
+			<header class="container-fluid">
+				<section class="row">
+					<nav class="navbar navbar-inverse navbar-static-top">				
+						<form class="navbar-form navbar-right" role="search">							
+							<div class="form-group">
+			      				<input type="text" class="form-control" placeholder="Sök sida">		      				
+			    			</div>
+			    			<button type="submit" class="btn btn-default search-button">Sök</button>
+			    		</form>
+					</nav>
+				</section>
+			</header>
 
 
-		<!-- Modal -->
-		
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog-lg">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h2 class="modal-title" id="myModalLabel">Infoga ny sida</h2>
-		      </div>
-		      	<section id="admin-form"> 
-		      		<form class="form-horizontal">
-			      		<div class="modal-body">			      	
+			<section class="container add_page_form">
+				<div class= "row">
+				  <div class="well well-lg">
+				  	<legend>Lägg till ny sida</legend>
+		      		<form class="form-horizontal" id="admin-form">
+		      			<!-- Input fields -->
+			      		<div class="form-group">
+			              <label class="col-sm-2 control-label" for="page_title">Titel</label>
+			              <div class="col-sm-10">
+			                <input type="text" id="page_title" class="form-control" placeholder="Skriv titel till sida..." required>
+			              </div>
+			            </div>
 
-			      			<!-- Input fields -->
-				      		<div class="form-group">
-				              <label class="col-sm-2 control-label" for="page_title">Titel</label>
-				              <div class="col-sm-10">
-				                <input type="text" id="page_title" class="form-control" placeholder="Skriv titel till sida..." required>
-				              </div>
-				            </div>
+			            <div class="form-group">
+							<label class="col-sm-2 control-label" for="page_body">Sid innehåll</label>
+							<div class="col-sm-10">
+								<textarea id="page_body" class="form-control" rows="10" placeholder="Fyll i sid innehåll..." required></textarea>
+							</div>
+			            </div>
 
-				            <div class="form-group">
-				              <label class="col-sm-2 control-label" for="menuField">Menynamn och länk</label>
-				              <div class="col-sm-10">
-				                <!-- <textarea id="menuField" class="form-control" rows="10" placeholder="Dubbelklicka för att lägga till menylänk..." required></textarea> -->
-				                <div class="btn btn-default btn-lg" id="menuField"><span class="glyphicon glyphicon-th-list"></span> Lägg till menylänk</div>
-				              </div>
-				            </div>
+			            <div class="form-group addToMenu">
+			              <label class="col-sm-2 control-label" for="menuField">Menynamn och länk</label>
+			              	<div class="checkbox col-sm-10">
+							  <label><input type="checkbox" value="">Lägg till i meny</label>
+							</div>
+			              <div class="col-sm-6 col-sm-offset-2 menuLinkFields">
+			                <div class="input-group">
+			                  <input type="text" class="form-control" id="menu_title" placeholder="Namn på menylänk">
+			                  <span class="input-group-addon" id="basic-addon2">Weight:</span>
+			                  <input type="number" value="0" id="menu_weight" class="form-control">
+			                </div>
 
-				            <div class="form-group">
-				              <label class="col-sm-2 control-label" for="page_body">Sid innehåll</label>
-				              <div class="col-sm-10">
-				                <textarea id="page_body" class="form-control" rows="10" placeholder="Fyll i sid innehåll..." required></textarea>
-				              </div>
-				            </div>
-		      			</div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Avsluta</button>
-				        <button type="submit" class="btn btn-primary" id="saveData">Spara sida</button>
-				      </div>
-			      	</form>
-			  	</section>
-		    </div>
-		  </div>
-		</div>
+							<select class="form-control" id="sel1">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+							</select>
 
-<!-- addmenuLink name/url popup -->		
-
-		<div class="modal fade" id="addMenuLink" style="overflow:auto" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog-md">
-				<div class="modal-content">
-			      <div class="modal-header">
-			      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			      	<h4 class="modal-title">Lägg till ny meny länk</h4>
-			      </div>
-
-			      <section id="addLink"> 
-		      		<form class="form-horizontal">
-			      		<div class="modal-body">			      	
-
-			      			<!-- Input fields -->
-				      		<div class="form-group">				              
-				              <div class="col-sm-2">
-				                <input type="text" id="page_url" class="form-control" placeholder="Skriv sidans url..." required>
-				              </div>
-				            </div>
-
-				            <div class="form-group">				              
-				              <div class="col-sm-2">
-				                <input type="text" id="page_name" class="form-control" placeholder="Skriv meny namn..." required>
-				              </div>
-				            </div>
-
-				            <div class="menuSelect">				              
-				              
-				            </div>
-
-				            
-		      			</div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Avsluta</button>
-				        <button type="submit" class="btn btn-primary" id="saveData">Spara sida</button>
-				      </div>
-			      	</form>
-			  	</section>
-
-		  		</div>
-			</div>
-		</div>
+			              </div>
+			            </div>
 
 
-		
 
-		<!-- Content of pages -->
-		<main class="container">
-			<section class="row">
-				<section id="content-list" class="main">
-	                <div class="panel panel-default">
-	                <div class="panel-heading">
-		              	<h1 class="panel-title">Befintliga sidor</h1>
-		              	<div class="btn-group btn-right">		              	
-			              	<!-- Button trigger modal -->
-			        		<button type="button" class="btn btn-primary btn-right openModal" data-toggle="modal" data-target="#myModal">
-							  Lägg till ny sida
-							</button>
+			      			
+						<div class="form-group pull-right">
+							<button type="button" id= "closeForm" class="btn btn-default">Avsluta</button>
+							<button type="submit" class="btn btn-primary">Spara sida</button>
 						</div>
-						
-		            </div>	
-
-		            <table class="table table-bordered">
-		              <tr class="pageTableHeads">
-		                <!-- table heads -->
-		                <th class="col-xs-1">pid:</th>
-		                <th class="col-xs-2">Titel:</th>
-		                <th class="col-xs-2">Författare:</th>
-		                <th class="col-xs-2">Skapad:</th>
-		                <th class="col-xs-1">Ta bort sida:</th>
-		              </tr>
-		            </table>
-		          </div>
-		        </section>
+						</br>
+			      	</form>
+				  </div>
+				</div>
 			</section>
-		</main>
 
+			<section class="container">
+				<div class= "row">
+				  <div class="well well-lg">
+		              	<div class="btn-group btn-right pull-right">		              	
+			        		<button type="button" class="openForm_btn btn btn-primary btn-right">Lägg till ny sida</button>										
+		            	</div>	
+				  	<legend>Befintliga sidor</legend>
+              	
 
+			            <table class="table table-bordered">
+			              <tr class="pageTableHeads">
+			                <!-- table heads -->
+			                <th class="col-xs-1">pid:</th>
+			                <th class="col-xs-2">Titel:</th>
+			                <th class="col-xs-2">Författare:</th>
+			                <th class="col-xs-2">Skapad:</th>
+			                <th class="col-xs-1">Ta bort sida:</th>
+			              </tr>
+			            </table>
+				
+				  </div>
+			  	</div>
+			</section>
+		</article>
 
+		<footer>
+	      <div class="container">
+	        <p class="text-muted">Bengo Boy 2015</p>
+	      </div>
+	    </footer>
 	</body>
 </html>
