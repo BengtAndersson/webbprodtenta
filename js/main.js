@@ -29,39 +29,37 @@ $(function() {
   });
 
 
-
-
-
-
-
   //store new page to db
   $("#admin-form").submit(function(){
+      var page_url =  generateMachineName($("#page_title").val());
+      
+      var adminFormData = {
+        ":title" : $(this).find("#page_title").val(),
+        ":body" : $(this).find("#page_body").val(),
+        ":path" : page_url
+      };
 
-  var adminFormData = {
-    ":title" : $(this).find("#page_title").val(),
-    ":body" : $(this).find("#page_body").val()
-  };
-    
-  
-  $.ajax({
-        url: "php/saveNewPage.php",
-        dataType: "json",
-        data: {"page_data" : adminFormData
-        },
-        success: function(data) {
-			console.log("insertPage success: ", data);
-			//saveUrlAlias();        
-        },
-        error: function(data) {
-          console.log("insertNewPage error: ", data);
-        }
-      });
-    console.log("Submit klickat");
-    this.reset();
-    return false;
+        //if the user has asked to add page to menu
+      if ($('.addToMenu input[type="checkbox"]').is(":checked")) {
+        //get selected menu parent data
+        adminFormData.menuData = {};
+        adminFormData.menuData["parent"] = $('.addToMenu select').find(":selected").data("menuItem");
+        //get menu link title
+        adminFormData.menuData["title"] = $('.addToMenu #menu_title').val();
+        //get menu link order
+        adminFormData.menuData["weight"] = $('.addToMenu #menu_weight').val();
+      }
+
+      savePage(adminFormData);
+      console.log("Submit klickat");
+      this.reset();
+      return false;
+    });
 
 
-  });
+
+
+
 
 
 

@@ -55,20 +55,17 @@ class ContentQueries extends PDOHelper {
 
 
   public function saveNewPage($page_data) {
-    
-
-    
-    //adding user_id before insert
-    //$page_data[":user_id"] = $this->user_info["user_id"];
+        //adding user_id before insert
+    $page_data[":user_id"] = $this->user_info["user_id"];
 
     //extract and remove page path to prevent crash on insert page
-    //$page_path = $page_data[":path"];
-    //unset($page_data[":path"]);
+    $page_path = $page_data[":path"];
+    unset($page_data[":path"]);
     //extract and remove page menu data to prevent crash on insert page
-    //$menu_data = $page_data["menuData"];
-    //unset($page_data["menuData"]);
+    $menu_data = $page_data["menuData"];
+    unset($page_data["menuData"]);
 
-    $sql = "INSERT INTO pages (title, body) VALUES (:title, :body)";
+    $sql = "INSERT INTO pages (title, body, user_id) VALUES (:title, :body, :user_id)";
     //since we are using prepared SQL statements, 
     //SQL and data are sent separately to the query method
 
@@ -77,11 +74,11 @@ class ContentQueries extends PDOHelper {
 
     //then find pid of new page by selecting the latest page 
     //in the pages table
-    //$sql2 = "SELECT pid FROM pages ORDER BY created DESC LIMIT 1";
-    //$new_pid = $this->query($sql2);
+    $sql2 = "SELECT pid FROM pages ORDER BY created DESC LIMIT 1";
+    $new_pid = $this->query($sql2);
     //extract pid from the array we get back
-    //$new_pid = $new_pid[0]["pid"];
-    /*
+    $new_pid = $new_pid[0]["pid"];
+
     //insert new page url alias
     $sql3 = "INSERT INTO url_alias (path, pid) VALUES (:path, :pid)";
     $url_data = array(":path" => $page_path, ":pid" => $new_pid);
@@ -98,7 +95,7 @@ class ContentQueries extends PDOHelper {
         ":weight" => $menu_data["weight"],
       );
       $this->query($sql4, $menu_data);
-    }*/
+    }
 
     return true;
   }

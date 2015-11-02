@@ -1,5 +1,34 @@
 // All ajax calls needed
 
+//Save new page
+function savePage(adminFormData) {
+
+      $.ajax({
+          url: "php/saveNewPage.php",
+          dataType: "json",
+          data: {"page_data" : adminFormData
+          },
+          success: function(data) {
+          console.log("insertPage success: ", data);
+          },
+          error: function(data) {
+            console.log("insertNewPage error: ", data);
+          }
+      });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Data from form as object adminFormData
 /*
 function savePage(adminFormData) {
